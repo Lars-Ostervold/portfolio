@@ -8,47 +8,47 @@ import ViewCounter from '../view-counter';
 import { increment } from 'app/db/actions';
 import { unstable_noStore as noStore } from 'next/cache';
 
-// export async function generateMetadata({
-//   params,
-// }): Promise<Metadata | undefined> {
-//   let post = getBlogPosts().find((post) => post.slug === params.slug);
-//   if (!post) {
-//     return;
-//   }
+export async function generateMetadata({
+  params,
+}): Promise<Metadata | undefined> {
+  let post = getBlogPosts().find((post) => post.slug === params.slug);
+  if (!post) {
+    return;
+  }
 
-//   let {
-//     title,
-//     publishedAt: publishedTime,
-//     summary: description,
-//     image,
-//   } = post.metadata;
-//   let ogImage = image
-//     ? `https://leerob.io${image}`
-//     : `https://leerob.io/og?title=${title}`;
+  let {
+    title,
+    publishedAt: publishedTime,
+    summary: description,
+    image,
+  } = post.metadata;
+  let ogImage = image
+    ? `https://leerob.io${image}`
+    : `https://leerob.io/og?title=${title}`;
 
-//   return {
-//     title,
-//     description,
-//     openGraph: {
-//       title,
-//       description,
-//       type: 'article',
-//       publishedTime,
-//       url: `https://leerob.io/blog/${post.slug}`,
-//       images: [
-//         {
-//           url: ogImage,
-//         },
-//       ],
-//     },
-//     twitter: {
-//       card: 'summary_large_image',
-//       title,
-//       description,
-//       images: [ogImage],
-//     },
-//   };
-// }
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: 'article',
+      publishedTime,
+      url: `https://leerob.io/blog/${post.slug}`,
+      images: [
+        {
+          url: ogImage,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [ogImage],
+    },
+  };
+}
 
 function formatDate(date: string) {
   noStore();
@@ -109,7 +109,7 @@ export default function Blog({ params }) {
             url: `https://leerob.io/blog/${post.slug}`,
             author: {
               '@type': 'Person',
-              name: 'Lee Robinson',
+              name: 'Lars Ostervoldks',
             },
           }),
         }}
