@@ -3,7 +3,7 @@ import { getBlogPosts } from 'app/db/blog';
 export default async function sitemap() {
   let blogs = getBlogPosts().map((post) => ({
     url: `https://leerob.io/blog/${post.slug}`,
-    lastModified: post.metadata.publishedAt,
+    lastModified: post.metadata.date,
   }));
 
   let routes = ['', '/blog', '/guestbook', '/uses', '/projects'].map((route) => ({
