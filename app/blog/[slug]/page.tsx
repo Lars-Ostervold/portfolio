@@ -18,8 +18,9 @@ export async function generateMetadata({
 
   let {
     title,
-    publishedAt: publishedTime,
+    date: publishedTime,
     summary: description,
+    tags: keywords,
     image,
   } = post.metadata;
   let ogImage = image
@@ -100,9 +101,10 @@ export default function Blog({ params }) {
             '@context': 'https://schema.org',
             '@type': 'BlogPosting',
             headline: post.metadata.title,
-            datePublished: post.metadata.publishedAt,
-            dateModified: post.metadata.publishedAt,
+            datePublished: post.metadata.date,
+            dateModified: post.metadata.date,
             description: post.metadata.summary,
+            tags: post.metadata.tags,
             image: post.metadata.image
               ? `https://leerob.io${post.metadata.image}`
               : `https://leerob.io/og?title=${post.metadata.title}`,
@@ -120,7 +122,7 @@ export default function Blog({ params }) {
       <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
         <Suspense fallback={<p className="h-5" />}>
           <p className="text-sm text-neutral-600 dark:text-neutral-400">
-            {formatDate(post.metadata.publishedAt)}
+            {formatDate(post.metadata.date)}
           </p>
         </Suspense>
         <Suspense fallback={<p className="h-5" />}>

@@ -1,20 +1,5 @@
 import { MiniProjectCard } from '../components/MiniProjectCard'
 
-// const Repos: React.FC<ReposProps> = ({ repos }) => {
-//   return (
-//     <div className="projects-grid grid grid-cols-2 gap-4">
-//       {repos.map((repo, index) => (
-//         <ProjectCard
-//           key={index}
-//           title={repo.name}
-//           description={repo.description}
-//           imageUrl={repo.imageUrl}
-//         />
-//       ))}
-//     </div>
-//   );
-// };
-
 async function getRepoData() {
   const res = await fetch('https://api.github.com/users/lars-ostervold/repos')
   if (!res.ok) {

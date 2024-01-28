@@ -3,8 +3,9 @@ import path from 'path';
 
 type Metadata = {
   title: string;
-  publishedAt: string;
+  date: string;
   summary: string;
+  tags: string[];
   image?: string;
 };
 
@@ -20,6 +21,12 @@ function parseFrontmatter(fileContent: string) {
     let [key, ...valueArr] = line.split(': ');
     let value = valueArr.join(': ').trim();
     value = value.replace(/^['"](.*)['"]$/, '$1'); // Remove quotes
+
+    //if key is tags, convert to array
+    if (key.trim() === 'tags') {
+      value = value.split(',').map((tag) => tag.trim());
+    }
+
     metadata[key.trim() as keyof Metadata] = value;
   });
 
