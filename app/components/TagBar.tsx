@@ -4,6 +4,8 @@ import React, { useState, Suspense } from 'react';
 import Link from 'next/link';
 import ViewCounter from '../blog/view-counter';
 import { getViewsCount } from 'app/db/queries';
+import { BlogPost } from 'app/db/blog';
+
 
 interface TagBarProps {
   tags: string[];
@@ -12,6 +14,9 @@ interface TagBarProps {
 
 export const TagBar: React.FC<TagBarProps> = ({ tags, blogs}) => {
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
+
+  //print first blog to console
+  console.log(blogs[0]);
 
   const handleTagClick = (tag: string) => {
     setSelectedTag(tag);
