@@ -2,7 +2,7 @@
 // app/components/TagBar.tsx
 import React, { useState, Suspense } from 'react';
 import Link from 'next/link';
-import ViewCounter from '../blog/view-counter';
+// import ViewCounter from '../blog/view-counter';
 import { getViewsCount } from 'app/db/queries';
 import { BlogPost } from 'app/db/blog';
 
@@ -14,9 +14,6 @@ interface TagBarProps {
 
 export const TagBar: React.FC<TagBarProps> = ({ tags, blogs}) => {
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
-
-  //print first blog to console
-  console.log(blogs[0]);
 
   const handleTagClick = (tag: string) => {
     setSelectedTag(tag);
@@ -64,9 +61,9 @@ export const TagBar: React.FC<TagBarProps> = ({ tags, blogs}) => {
               <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
                 {post.metadata.title}
               </p>
-              <Suspense fallback={<p className="h-6" />}>
+              {/* <Suspense fallback={<p className="h-6" />}>
                 <Views slug={post.slug} />
-              </Suspense>
+              </Suspense> */}
             </div>
           </Link>
         ))}
@@ -74,8 +71,8 @@ export const TagBar: React.FC<TagBarProps> = ({ tags, blogs}) => {
   );
 };
 
-async function Views({ slug }: { slug: string }) {
-  let views = await getViewsCount();
+// async function Views({ slug }: { slug: string }) {
+//   let views = await getViewsCount();
 
-  return <ViewCounter allViews={views} slug={slug} />;
-}
+//   return <ViewCounter allViews={views} slug={slug} />;
+// }
