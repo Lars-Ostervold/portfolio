@@ -1,7 +1,11 @@
 import { MiniProjectCard } from '../components/MiniProjectCard'
 
 async function getRepoData() {
-  const res = await fetch('https://api.github.com/users/lars-ostervold/repos')
+  const res = await fetch('https://api.github.com/users/lars-ostervold/repos' , {
+    headers: {
+      'Cache-Control': 'no-cache'
+    }
+  })
   if (!res.ok) {
     throw new Error(`Failed to fetch data with status code ${res.status}`)
   }
