@@ -6,6 +6,7 @@ import { Navbar } from './components/nav';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { SandpackCSS } from './thoughts/[slug]/sandpack';
+import ChatIcon from '@mui/icons-material/Chat';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://lars-ostervold.vercel.app'),
@@ -13,10 +14,10 @@ export const metadata: Metadata = {
     default: 'Lars Ostervold',
     template: '%s | Lars Ostervold',
   },
-  description: 'Developer, writer, and creator.',
+  description: 'Disciple and nerd.',
   openGraph: {
     title: 'Lars Ostervold',
-    description: 'Developer, writer, and creator.',
+    description: 'Disciple and nerd.',
     url: 'https://lars-ostervold.vercel.app',
     siteName: 'Lars Ostervold',
     locale: 'en_US',
@@ -63,12 +64,20 @@ export default function RootLayout({
         <SandpackCSS />
       </head>
       <body className="antialiased max-w-2xl mb-40 flex flex-col md:flex-row mx-4 mt-8 lg:mx-auto">
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
-          <Navbar />
-          {children}
-          <Analytics />
-          <SpeedInsights />
-        </main>
+        <div className="relative">
+          <main className="flex-auto min-w-0 mt-6 pb-16 flex flex-col px-2 md:px-0">
+            <Navbar />
+            {children}
+            <Analytics />
+            <SpeedInsights />
+          </main>
+          <footer className="absolute bottom-0 w-full border-t border-gray-200 dark:border-gray-800">
+            <a href="mailto:ostervold.berent@gmail.com" className="self-center mt-4">
+              <ChatIcon fontSize='small' className='mr-2' />
+              Chat with me
+            </a>
+          </footer>
+        </div>
       </body>
     </html>
   );
