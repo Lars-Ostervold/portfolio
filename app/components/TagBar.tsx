@@ -36,7 +36,7 @@ export const TagBar: React.FC<TagBarProps> = ({ tags, thoughtss}) => {
           <button
             key={index}
             onClick={() => handleTagClick(tag)}
-            className={`dark:bg-gray-900 dark:text-white rounded-lg shadow-md px-2 py-1 border border-gray-600 transform transition-transform duration-200 ease-in-out hover:scale-105 ${tag === selectedTag ? 'bg-blue-500 dark:bg-white dark:text-black' : ''}`}
+            className={`dark:bg-gray-900 dark:text-white rounded-lg shadow-md px-2 py-1 border border-gray-600 transform transition-transform duration-200 ease-in-out hover:scale-105 ${tag === selectedTag ? 'bg-blue-500 dark:bg-black' : ''}`}
           >
             {tag}
           </button>
@@ -61,18 +61,9 @@ export const TagBar: React.FC<TagBarProps> = ({ tags, thoughtss}) => {
               <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
                 {post.metadata.title}
               </p>
-              {/* <Suspense fallback={<p className="h-6" />}>
-                <Views slug={post.slug} />
-              </Suspense> */}
             </div>
           </Link>
         ))}
     </div>
   );
 };
-
-// async function Views({ slug }: { slug: string }) {
-//   let views = await getViewsCount();
-
-//   return <ViewCounter allViews={views} slug={slug} />;
-// }
