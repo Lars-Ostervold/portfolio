@@ -2,7 +2,7 @@ import { getthoughtsPosts } from 'app/db/thoughts';
 
 export default async function sitemap() {
   let thoughtss = getthoughtsPosts().map((post) => ({
-    url: `https://leerob.io/thoughts/${post.slug}`,
+    url: `https://lars-ostervold.vercel.app/thoughts/${post.slug}`,
     lastModified: post.metadata.date,
   }));
 
