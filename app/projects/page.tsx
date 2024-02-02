@@ -13,6 +13,15 @@ async function getRepoData() {
   return res.json()
 }
 
+const otherProjects = [
+  {
+    title: 'BREAD!🥖',
+    description: 'I\'ve been making a ridiculous amount of sourdough recently because it\'s rly rly fun.',
+    imageUrl: '/images/bread-photo.JPG',
+    url: null
+  },
+]
+
 
 export default async function Page() {
   const repoData = await getRepoData()
@@ -40,10 +49,9 @@ export default async function Page() {
         A collection of other passion projects that aren't programming 😇
       </p>
       <div className="projects-grid grid grid-cols-2 gap-4">
-        <ProjectCard title="BREAD!🥖" 
-          description="I've been making a ridiculous amount of sourdough recently because it's rly rly fun." 
-          imageUrl="/images/bread-photo.JPG"
-        />
+        {otherProjects.map((project, index) => (
+          <ProjectCard key={index} {...project} />
+        ))}
       </div>
     </main>
   )
