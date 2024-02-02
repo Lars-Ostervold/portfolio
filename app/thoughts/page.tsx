@@ -19,8 +19,14 @@ export default function thoughtsPage() {
   return (
     <section>
       <h1 className="font-medium text-2xl mb-8 tracking-tighter">
-        read my thoughts
+        I've been too busy building this site to have thoughts 👀 <br/><br/>
+        But imagine if I had some thoughts! Then they'd be here in the form of short articles.       
       </h1>
+      <p className="mb-6">
+        Just so I have placeholders for the future, here are some thoughts I might have.
+        And then you could like click on the thing and it'll take you to a page all about that 
+        single thought. Really cool stuff. 🧠🤯
+      </p>
 
       <TagBar tags={tags} thoughtss={allthoughts} />
 

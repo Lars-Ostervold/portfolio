@@ -11,7 +11,7 @@ interface TagBarProps {
 }
 
 export const TagBar: React.FC<TagBarProps> = ({ tags, thoughtss}) => {
-  const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const [selectedTag, setSelectedTag] = useState<string | null>('All');
 
   const handleTagClick = (tag: string) => {
     setSelectedTag(tag);
@@ -21,14 +21,15 @@ export const TagBar: React.FC<TagBarProps> = ({ tags, thoughtss}) => {
   const uniqueTags = Array.from(new Set(tags.flat()));
 
   // Sort the tags alphabetically
-  const sortedTags = uniqueTags.sort((a, b) => a.localeCompare(b));
+  const sortedTags = ['All', ...uniqueTags.sort((a, b) => a.localeCompare(b))];
 
-  let filteredthoughtss = selectedTag
-    ? thoughtss.filter((thoughts) => thoughts.metadata.tags.includes(selectedTag))
+  let filteredthoughtss = selectedTag !== 'All'
+    ? thoughtss.filter((thoughts) => thoughts.metadata.tags.includes(selectedTag || ''))
     : thoughtss;
 
   return (
     <div>
+      <h2 className="text-2xl font-bold mb-2">Filter by Tag</h2>
       <div className="flex flex-wrap gap-2 mb-4">
         {sortedTags.map((tag, index) => (
           <button
@@ -40,6 +41,7 @@ export const TagBar: React.FC<TagBarProps> = ({ tags, thoughtss}) => {
           </button>
         ))}
       </div>
+      <h2 className="text-2xl font-bold mb-2">Thoughts</h2>
       {filteredthoughtss
         .sort((a, b) => {
           if (
@@ -50,17 +52,19 @@ export const TagBar: React.FC<TagBarProps> = ({ tags, thoughtss}) => {
           return 1;
         })
         .map((post) => (
-          <Link
-            key={post.slug}
-            className="flex flex-col space-y-1 mb-4"
-            href={`/thoughts/${post.slug}`}
-          >
-            <div className="w-full flex flex-col">
-              <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
-                {post.metadata.title}
-              </p>
-            </div>
-          </Link>
+          <div className='flex'>
+            <Link
+              key={post.slug}
+              className="block space-y-1 mb-4 bg-white dark:bg-gray-900 text-black dark:text-white rounded-lg shadow-md p-2 border border-gray-400 dark:border-gray-600 overflow-hidden transform transition-transform duration-200 ease-in-out hover:scale-105"
+              href={`/thoughts/${post.slug}`}
+            >
+              <div className="w-full flex flex-col">
+                <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
+                  {post.metadata.title}
+                </p>
+              </div>
+            </Link>
+          </div>
         ))}
     </div>
   );
