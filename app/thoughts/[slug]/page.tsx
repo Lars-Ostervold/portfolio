@@ -2,10 +2,7 @@ import type { Metadata } from 'next';
 import { Suspense, cache } from 'react';
 import { notFound } from 'next/navigation';
 import { CustomMDX } from 'app/components/mdx';
-import { getViewsCount } from 'app/db/queries';
 import { getthoughtsPosts } from 'app/db/thoughts';
-import ViewCounter from '../view-counter';
-import { increment } from 'app/db/actions';
 import { unstable_noStore as noStore } from 'next/cache';
 
 export async function generateMetadata({
@@ -111,7 +108,7 @@ export default function thoughts({ params }) {
             url: `https://leerob.io/thoughts/${post.slug}`,
             author: {
               '@type': 'Person',
-              name: 'Lars Ostervoldks',
+              name: 'Lars Ostervold',
             },
           }),
         }}
@@ -125,21 +122,10 @@ export default function thoughts({ params }) {
             {formatDate(post.metadata.date)}
           </p>
         </Suspense>
-        <Suspense fallback={<p className="h-5" />}>
-          <Views slug={post.slug} />
-        </Suspense>
       </div>
       <article className="prose prose-quoteless prose-neutral dark:prose-invert">
         <CustomMDX source={post.content} />
       </article>
     </section>
   );
-}
-
-let incrementViews = cache(increment);
-
-async function Views({ slug }: { slug: string }) {
-  let views = await getViewsCount();
-  incrementViews(slug);
-  return <ViewCounter allViews={views} slug={slug} />;
 }

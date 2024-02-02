@@ -1,22 +1,20 @@
 import Link from 'next/link';
-import { Suspense } from 'react';
-import ViewCounter from './view-counter';
 import { getViewsCount } from 'app/db/queries';
 import { getthoughtsPosts } from 'app/db/thoughts';
 import { TagBar } from 'app/components/TagBar';
 
 export const metadata = {
   title: 'thoughts',
-  description: 'Read my thoughts on software development, design, and more.',
+  description: 'Read my thoughts on the world.',
 };
 
 export default function thoughtsPage() {
   
-  let allthoughtss = getthoughtsPosts();
+  let allthoughts = getthoughtsPosts();
 
   // Extract all unique tags from the thoughts posts
   let tags = Array.from(
-    new Set(allthoughtss.flatMap((post) => post.metadata.tags))
+    new Set(allthoughts.flatMap((post) => post.metadata.tags))
   ).filter((tag): tag is string => tag !== undefined);
   
   return (
@@ -25,14 +23,8 @@ export default function thoughtsPage() {
         read my thoughts
       </h1>
 
-      <TagBar tags={tags} thoughtss={allthoughtss} />
+      <TagBar tags={tags} thoughtss={allthoughts} />
 
     </section>
   );
 }
-
-// async function Views({ slug }: { slug: string }) {
-//   let views = await getViewsCount();
-
-//   return <ViewCounter allViews={views} slug={slug} />;
-// }
