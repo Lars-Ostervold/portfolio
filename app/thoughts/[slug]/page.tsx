@@ -3,7 +3,7 @@ import { Suspense, cache } from 'react';
 import { notFound } from 'next/navigation';
 import { CustomMDX } from 'app/components/mdx';
 import { getViewsCount } from 'app/db/queries';
-import { getBlogPosts } from 'app/db/blog';
+import { getthoughtsPosts } from 'app/db/thoughts';
 import ViewCounter from '../view-counter';
 import { increment } from 'app/db/actions';
 import { unstable_noStore as noStore } from 'next/cache';
@@ -11,7 +11,7 @@ import { unstable_noStore as noStore } from 'next/cache';
 export async function generateMetadata({
   params,
 }): Promise<Metadata | undefined> {
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
+  let post = getthoughtsPosts().find((post) => post.slug === params.slug);
   if (!post) {
     return;
   }
@@ -35,7 +35,7 @@ export async function generateMetadata({
       description,
       type: 'article',
       publishedTime,
-      url: `https://leerob.io/blog/${post.slug}`,
+      url: `https://leerob.io/thoughts/${post.slug}`,
       images: [
         {
           url: ogImage,
@@ -84,8 +84,8 @@ function formatDate(date: string) {
   return `${fullDate} (${formattedDate})`;
 }
 
-export default function Blog({ params }) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
+export default function thoughts({ params }) {
+  let post = getthoughtsPosts().find((post) => post.slug === params.slug);
 
   if (!post) {
     notFound();
@@ -99,7 +99,7 @@ export default function Blog({ params }) {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             '@context': 'https://schema.org',
-            '@type': 'BlogPosting',
+            '@type': 'thoughtsPosting',
             headline: post.metadata.title,
             datePublished: post.metadata.date,
             dateModified: post.metadata.date,
@@ -108,7 +108,7 @@ export default function Blog({ params }) {
             image: post.metadata.image
               ? `https://leerob.io${post.metadata.image}`
               : `https://leerob.io/og?title=${post.metadata.title}`,
-            url: `https://leerob.io/blog/${post.slug}`,
+            url: `https://leerob.io/thoughts/${post.slug}`,
             author: {
               '@type': 'Person',
               name: 'Lars Ostervoldks',

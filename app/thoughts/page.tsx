@@ -2,30 +2,30 @@ import Link from 'next/link';
 import { Suspense } from 'react';
 import ViewCounter from './view-counter';
 import { getViewsCount } from 'app/db/queries';
-import { getBlogPosts } from 'app/db/blog';
+import { getthoughtsPosts } from 'app/db/thoughts';
 import { TagBar } from 'app/components/TagBar';
 
 export const metadata = {
-  title: 'Blog',
+  title: 'thoughts',
   description: 'Read my thoughts on software development, design, and more.',
 };
 
-export default function BlogPage() {
+export default function thoughtsPage() {
   
-  let allBlogs = getBlogPosts();
+  let allthoughtss = getthoughtsPosts();
 
-  // Extract all unique tags from the blog posts
+  // Extract all unique tags from the thoughts posts
   let tags = Array.from(
-    new Set(allBlogs.flatMap((post) => post.metadata.tags))
+    new Set(allthoughtss.flatMap((post) => post.metadata.tags))
   ).filter((tag): tag is string => tag !== undefined);
   
   return (
     <section>
       <h1 className="font-medium text-2xl mb-8 tracking-tighter">
-        read my blog
+        read my thoughts
       </h1>
 
-      <TagBar tags={tags} blogs={allBlogs} />
+      <TagBar tags={tags} thoughtss={allthoughtss} />
 
     </section>
   );

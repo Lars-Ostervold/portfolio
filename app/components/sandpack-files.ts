@@ -3,22 +3,22 @@ export const HTML = `<!DOCTYPE html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Minimal Blog</title>
+    <title>Minimal thoughts</title>
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <header class="blog-header">
-      <h1>Minimal Blog</h1>
+    <header class="thoughts-header">
+      <h1>Minimal thoughts</h1>
     </header>
     <main>
-      <article class="blog-post">
+      <article class="thoughts-post">
         <h2 class="post-title">The Art of CSS</h2>
         <p class="post-content">
           Discovering the latest features in CSS can transform the way we design
           and interact with web content.
         </p>
       </article>
-      <article class="blog-post">
+      <article class="thoughts-post">
         <h2 class="post-title">Exploring Web Design</h2>
         <p class="post-content">
           A journey through the evolution of web design, from static pages to
@@ -26,8 +26,8 @@ export const HTML = `<!DOCTYPE html>
         </p>
       </article>
     </main>
-    <footer class="blog-footer">
-      <p>&copy; 2023 Minimal Blog</p>
+    <footer class="thoughts-footer">
+      <p>&copy; 2023 Minimal thoughts</p>
     </footer>
   </body>
 </html>`;
@@ -46,15 +46,15 @@ body {
   font-family: var(--font-family);
 }
 
-.blog-header,
-.blog-footer {
+.thoughts-header,
+.thoughts-footer {
   text-align: center;
   padding: 1rem;
   background-color: var(--title-color);
   color: white;
 }
 
-.blog-post {
+.thoughts-post {
   container-type: inline-size;
   margin: 1rem;
   padding: 1rem;
@@ -74,7 +74,7 @@ body {
 }
 
 @container (min-inline-size: 500px) {
-  .blog-post {
+  .thoughts-post {
     padding: 1.5rem;
 
     & .post-title {
@@ -88,12 +88,12 @@ export const Tailwind = `<!DOCTYPE html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Minimal Blog</title>
+    <title>Minimal thoughts</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body class="bg-gray-100 font-sans">
     <header class="text-center text-3xl font-bold py-8 bg-neutral-800 text-white">
-      <h1>Minimal Blog</h1>
+      <h1>Minimal thoughts</h1>
     </header>
     <main class="w-full px-4">
       <article class="my-4 p-4 bg-white shadow-md">
@@ -112,7 +112,7 @@ export const Tailwind = `<!DOCTYPE html>
       </article>
     </main>
     <footer class="text-center py-8 bg-neutral-800 text-white">
-      <p>&copy; 2023 Minimal Blog</p>
+      <p>&copy; 2023 Minimal thoughts</p>
     </footer>
   </body>
 </html>`;
@@ -122,7 +122,7 @@ export const stylexIndex = `<!DOCTYPE html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Minimal Blog</title>
+    <title>Minimal thoughts</title>
   </head>
   <body>
     <div id="root"></div>
@@ -170,7 +170,7 @@ const styles = stylex.create({
     backgroundColor: tokens.titleColor,
     color: "white",
   },
-  blogPost: {
+  thoughtsPost: {
     margin: "1rem",
     padding: "1rem",
     backgroundColor: "white",
@@ -191,17 +191,17 @@ export default function App() {
   return (
     <body {...stylex.props(styles.body)}>
       <header {...stylex.props(styles.headerFooter)}>
-        <h1 {...stylex.props(styles.header)}>Minimal Blog</h1>
+        <h1 {...stylex.props(styles.header)}>Minimal thoughts</h1>
       </header>
       <main>
-        <article {...stylex.props(styles.blogPost)}>
+        <article {...stylex.props(styles.thoughtsPost)}>
           <h2 {...stylex.props(styles.postTitle)}>The Art of CSS</h2>
           <p {...stylex.props(styles.postContent)}>
             Discovering the latest features in CSS can transform the way we
             design and interact with web content.
           </p>
         </article>
-        <article {...stylex.props(styles.blogPost)}>
+        <article {...stylex.props(styles.thoughtsPost)}>
           <h2 {...stylex.props(styles.postTitle)}>Exploring Web Design</h2>
           <p {...stylex.props(styles.postContent)}>
             A journey through the evolution of web design, from static pages to
@@ -210,7 +210,7 @@ export default function App() {
         </article>
       </main>
       <footer {...stylex.props(styles.headerFooter)}>
-        <p>&copy; 2023 Minimal Blog</p>
+        <p>&copy; 2023 Minimal thoughts</p>
       </footer>
     </body>
   );

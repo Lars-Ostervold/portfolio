@@ -9,7 +9,7 @@ type Metadata = {
   image?: string;
 };
 
-export interface BlogPost {
+export interface thoughtsPost {
   metadata: Metadata;
   slug: string;
   tweetIds: string[];
@@ -69,6 +69,6 @@ function getMDXData(dir) {
   });
 }
 
-export function getBlogPosts() {
+export function getthoughtsPosts() {
   return getMDXData(path.join(process.cwd(), 'content'));
 }
