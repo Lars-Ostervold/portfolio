@@ -20,7 +20,7 @@ let yt = youtube({
   auth: googleAuth,
 });
 
-export async function getBlogViews() {
+export async function getthoughtsViews() {
   if (!process.env.POSTGRES_URL) {
     return [];
   }

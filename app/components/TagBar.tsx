@@ -2,17 +2,17 @@
 // app/components/TagBar.tsx
 import React, { useState, Suspense } from 'react';
 import Link from 'next/link';
-// import ViewCounter from '../blog/view-counter';
+// import ViewCounter from '../thoughts/view-counter';
 import { getViewsCount } from 'app/db/queries';
-import { BlogPost } from 'app/db/blog';
+import { thoughtsPost } from 'app/db/thoughts';
 
 
 interface TagBarProps {
   tags: string[];
-  blogs: BlogPost[];
+  thoughtss: thoughtsPost[];
 }
 
-export const TagBar: React.FC<TagBarProps> = ({ tags, blogs}) => {
+export const TagBar: React.FC<TagBarProps> = ({ tags, thoughtss}) => {
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
 
   const handleTagClick = (tag: string) => {
@@ -25,9 +25,9 @@ export const TagBar: React.FC<TagBarProps> = ({ tags, blogs}) => {
   // Sort the tags alphabetically
   const sortedTags = uniqueTags.sort((a, b) => a.localeCompare(b));
 
-  let filteredBlogs = selectedTag
-    ? blogs.filter((blog) => blog.metadata.tags.includes(selectedTag))
-    : blogs;
+  let filteredthoughtss = selectedTag
+    ? thoughtss.filter((thoughts) => thoughts.metadata.tags.includes(selectedTag))
+    : thoughtss;
 
   return (
     <div>
@@ -42,7 +42,7 @@ export const TagBar: React.FC<TagBarProps> = ({ tags, blogs}) => {
           </button>
         ))}
       </div>
-      {filteredBlogs
+      {filteredthoughtss
         .sort((a, b) => {
           if (
             new Date(a.metadata.date) > new Date(b.metadata.date)
@@ -55,7 +55,7 @@ export const TagBar: React.FC<TagBarProps> = ({ tags, blogs}) => {
           <Link
             key={post.slug}
             className="flex flex-col space-y-1 mb-4"
-            href={`/blog/${post.slug}`}
+            href={`/thoughts/${post.slug}`}
           >
             <div className="w-full flex flex-col">
               <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
