@@ -8,7 +8,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { SandpackCSS } from './thoughts/[slug]/sandpack';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://leerob.io'),
+  metadataBase: new URL('https://lars-ostervold.vercel.app'),
   title: {
     default: 'Lars Ostervold',
     template: '%s | Lars Ostervold',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Lars Ostervold',
     description: 'Developer, writer, and creator.',
-    url: 'https://leerob.io',
+    url: 'https://lars-ostervold.vercel.app',
     siteName: 'Lars Ostervold',
     locale: 'en_US',
     type: 'website',

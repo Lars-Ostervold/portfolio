@@ -21,8 +21,8 @@ export async function generateMetadata({
     image,
   } = post.metadata;
   let ogImage = image
-    ? `https://leerob.io${image}`
-    : `https://leerob.io/og?title=${title}`;
+    ? `https://lars-ostervold.vercel.app${image}`
+    : `https://lars-ostervold.vercel.app/og?title=${title}`;
 
   return {
     title,
@@ -32,7 +32,7 @@ export async function generateMetadata({
       description,
       type: 'article',
       publishedTime,
-      url: `https://leerob.io/thoughts/${post.slug}`,
+      url: `https://lars-ostervold.vercel.app/thoughts/${post.slug}`,
       images: [
         {
           url: ogImage,
@@ -103,9 +103,9 @@ export default function thoughts({ params }) {
             description: post.metadata.summary,
             tags: post.metadata.tags,
             image: post.metadata.image
-              ? `https://leerob.io${post.metadata.image}`
-              : `https://leerob.io/og?title=${post.metadata.title}`,
-            url: `https://leerob.io/thoughts/${post.slug}`,
+              ? `https://lars-ostervold.vercel.app${post.metadata.image}`
+              : `https://lars-ostervold.vercel.app/og?title=${post.metadata.title}`,
+            url: `https://lars-ostervold.vercel.app/thoughts/${post.slug}`,
             author: {
               '@type': 'Person',
               name: 'Lars Ostervold',
