@@ -5,7 +5,7 @@ export default function robots() {
         userAgent: '*',
       },
     ],
-    sitemap: 'https://leerob.io/sitemap.xml',
-    host: 'https://leerob.io',
+    sitemap: 'https://lars-ostervold.vercel.app/sitemap.xml',
+    host: 'https://lars-ostervold.vercel.app/',
   };
 }

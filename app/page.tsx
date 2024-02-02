@@ -27,6 +27,7 @@ export default function Page() {
       title: 'BREAD!🥖',
       description: 'I\'ve been making a ridiculous amount of sourdough recently because it\'s rly rly fun.',
       imageUrl: '/images/bread-photo.JPG',
+      url: null
     },
   ];
 

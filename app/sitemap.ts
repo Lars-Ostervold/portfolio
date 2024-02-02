@@ -6,8 +6,8 @@ export default async function sitemap() {
     lastModified: post.metadata.date,
   }));
 
-  let routes = ['', '/blog', '/guestbook', '/uses', '/projects'].map((route) => ({
-    url: `https://leerob.io${route}`,
+  let routes = ['', '/blog', '/uses', '/projects'].map((route) => ({
+    url: `https://lars-ostervold.vercel.app/${route}`,
     lastModified: new Date().toISOString().split('T')[0],
   }));
 
