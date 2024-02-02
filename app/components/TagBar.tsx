@@ -36,7 +36,7 @@ export const TagBar: React.FC<TagBarProps> = ({ tags, blogs}) => {
           <button
             key={index}
             onClick={() => handleTagClick(tag)}
-            className={`bg-gray-900 text-white rounded-lg shadow-md px-2 py-1 border border-gray-600 transform transition-transform duration-200 ease-in-out hover:scale-105 ${tag === selectedTag ? 'bg-blue-500' : ''}`}
+            className={`dark:bg-gray-900 dark:text-white rounded-lg shadow-md px-2 py-1 border border-gray-600 transform transition-transform duration-200 ease-in-out hover:scale-105 ${tag === selectedTag ? 'bg-blue-500 dark:bg-white dark:text-black' : ''}`}
           >
             {tag}
           </button>
