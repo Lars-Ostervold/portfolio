@@ -6,24 +6,27 @@ import { ProjectCard } from './components/ProjectCard';
 export default function Page() {
   const projects = [
     {
-      title: 'Project 1',
-      description: 'This is a description for Project 1.',
-      imageUrl: '/images/tree-of-life.png',
+      title: 'Book Scanner',
+      description: 'This is an iOS app that lets you organize and search your book collection. Just scan the barcode and you\'re good to go!',
+      imageUrl: '/images/book-scanner.jpg',
+      url: 'https://github.com/Lars-Ostervold/BookScanner'
     },
     {
-      title: 'Project 2',
-      description: 'This is a description for Project 1.',
-      imageUrl: '/images/tree-of-life.png',
+      title: 'Fitness Buddy',
+      description: 'A web app that generates weekly workouts for you (and also loves you unconditionally). 😊',
+      imageUrl: '/images/fitness-buddy.png',
+      url: 'https://main.d2ml4fhfnwpjvt.amplifyapp.com/dashboard/app'
     },
     {
-      title: 'Project 3',
-      description: 'This is a description for Project 1.',
+      title: 'Personal Website',
+      description: 'This is the site you\'re on right now! It\'s built with Next.js and Tailwind CSS. I\'m pretty proud of it.',
       imageUrl: '/images/tree-of-life.png',
+      url: 'https://lars-ostervold.vercel.app/'
     },
     {
-      title: 'Project 4',
-      description: 'This is a description for Project 1.',
-      imageUrl: '/images/tree-of-life.png',
+      title: 'BREAD!🥖',
+      description: 'I\'ve been making a ridiculous amount of sourdough recently because it\'s rly rly fun.',
+      imageUrl: '/images/bread-photo.JPG',
     },
   ];
 
