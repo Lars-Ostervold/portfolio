@@ -2,8 +2,6 @@
 // app/components/TagBar.tsx
 import React, { useState, Suspense } from 'react';
 import Link from 'next/link';
-// import ViewCounter from '../thoughts/view-counter';
-import { getViewsCount } from 'app/db/queries';
 import { thoughtsPost } from 'app/db/thoughts';
 
 

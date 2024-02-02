@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { getViewsCount } from 'app/db/queries';
 import { getthoughtsPosts } from 'app/db/thoughts';
 import { TagBar } from 'app/components/TagBar';
 
