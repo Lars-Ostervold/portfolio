@@ -71,7 +71,7 @@ export default function RootLayout({
             <Analytics />
             <SpeedInsights />
           </main>
-          <footer className="absolute bottom-0 w-full border-t border-gray-200 dark:border-gray-800">
+          <footer className="absolute bottom-0 w-full border-t border-gray-400 dark:border-gray-500">
             <div className="mt-1">
               <a href="mailto:ostervold.berent@gmail.com" className="self-center">
                 <ChatIcon fontSize='small' className='mr-2' />
