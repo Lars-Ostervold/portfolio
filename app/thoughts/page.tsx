@@ -28,7 +28,7 @@ export default function thoughtsPage() {
         single thought. Really cool stuff. 🧠🤯
       </p>
 
-      <TagBar tags={tags} thoughtss={allthoughts} />
+      <TagBar tags={tags} thoughts={allthoughts} />
 
     </section>
   );

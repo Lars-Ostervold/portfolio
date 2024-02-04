@@ -72,10 +72,12 @@ export default function RootLayout({
             <SpeedInsights />
           </main>
           <footer className="absolute bottom-0 w-full border-t border-gray-200 dark:border-gray-800">
-            <a href="mailto:ostervold.berent@gmail.com" className="self-center mt-4">
-              <ChatIcon fontSize='small' className='mr-2' />
-              Chat with me
-            </a>
+            <div className="mt-1">
+              <a href="mailto:ostervold.berent@gmail.com" className="self-center">
+                <ChatIcon fontSize='small' className='mr-2' />
+                Chat with me
+              </a>
+            </div>
           </footer>
         </div>
       </body>

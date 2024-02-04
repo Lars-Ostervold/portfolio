@@ -123,7 +123,7 @@ export default function thoughts({ params }) {
           </p>
         </Suspense>
       </div>
-      <article className="prose prose-quoteless prose-neutral dark:prose-invert">
+      <article className="prose prose-quoteless prose-neutral dark:text-white">
         <CustomMDX source={post.content} />
       </article>
     </section>
