@@ -29,7 +29,7 @@ export default async function Page() {
   return (
     <main>
       <h1 className="font-medium text-3xl mb-4 tracking-tighter">Programming Projects 🖥️</h1>
-      <p className="prose prose-neutral dark:prose-invert mb-8">
+      <p className="prose prose-neutral dark:text-white mb-8">
         Here's a collection of some of my programming projects. If there's a public website, clicking
         the link will take you there. If not, the link will take you to the GitHub repository.
       </p>
@@ -45,7 +45,7 @@ export default async function Page() {
         ))}
       </div>
       <h1 className="font-medium text-3xl mb-4 mt-8 tracking-tighter">What else is cooking... 👨🏼‍🍳</h1>
-      <p className="prose prose-neutral dark:prose-invert mb-8">
+      <p className="prose prose-neutral dark:text-white mb-8">
         A collection of other passion projects that aren't programming 😇
       </p>
       <div className="projects-grid grid grid-cols-2 gap-4">

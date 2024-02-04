@@ -39,7 +39,7 @@ export const MiniProjectCard: React.FC<ProjectCardProps> = ({ title, description
             <GitHubIcon />
           </a>
         )}
-        <h2 className="text-2xl font-bold mt-1 mb-4 dark:text-gray-300">{parseTitle(title)}</h2>
+        <h2 className="text-2xl font-bold mt-1 mb-4 dark:text-white">{parseTitle(title)}</h2>
         <p className="text-sm dark:text-gray-100">{description}</p>
       </div>
     </a>

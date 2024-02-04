@@ -7,10 +7,10 @@ import { thoughtsPost } from 'app/db/thoughts';
 
 interface TagBarProps {
   tags: string[];
-  thoughtss: thoughtsPost[];
+  thoughts: thoughtsPost[];
 }
 
-export const TagBar: React.FC<TagBarProps> = ({ tags, thoughtss}) => {
+export const TagBar: React.FC<TagBarProps> = ({ tags, thoughts}) => {
   const [selectedTag, setSelectedTag] = useState<string | null>('All');
 
   const handleTagClick = (tag: string) => {
@@ -23,9 +23,9 @@ export const TagBar: React.FC<TagBarProps> = ({ tags, thoughtss}) => {
   // Sort the tags alphabetically
   const sortedTags = ['All', ...uniqueTags.sort((a, b) => a.localeCompare(b))];
 
-  let filteredthoughtss = selectedTag !== 'All'
-    ? thoughtss.filter((thoughts) => thoughts.metadata.tags.includes(selectedTag || ''))
-    : thoughtss;
+  let filteredthoughts = selectedTag !== 'All'
+    ? thoughts.filter((thoughts) => thoughts.metadata.tags.includes(selectedTag || ''))
+    : thoughts;
 
   return (
     <div>
@@ -42,7 +42,7 @@ export const TagBar: React.FC<TagBarProps> = ({ tags, thoughtss}) => {
         ))}
       </div>
       <h2 className="text-2xl font-bold mb-2">Thoughts</h2>
-      {filteredthoughtss
+      {filteredthoughts
         .sort((a, b) => {
           if (
             new Date(a.metadata.date) > new Date(b.metadata.date)
