@@ -73,7 +73,7 @@ export default function RootLayout({
           </main>
           <footer className="absolute bottom-0 w-full border-t border-gray-400 dark:border-gray-500">
             <div className="mt-1">
-              <a href="mailto:ostervold.berent@gmail.com" className="self-center">
+              <a href="mailto:lars.ostervold.3@gmail.com" className="self-center">
                 <ChatIcon fontSize='small' className='mr-2' />
                 Chat with me
               </a>
