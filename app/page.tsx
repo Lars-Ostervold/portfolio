@@ -6,6 +6,18 @@ import { ProjectCard } from './components/ProjectCard';
 export default function Page() {
   const projects = [
     {
+      title: 'BibleProject Chatbot',
+      description: 'This is a RAG stack chatbot that answers questions about the Bible using content from BibleProject.',
+      imageUrl: '/images/bp-chatbot.png',
+      url: 'https://bp-chatbot.streamlit.app/'
+    },
+    {
+      title: 'Personal Website',
+      description: 'This is the site you\'re on right now! It\'s built with Next.js and Tailwind CSS. I\'m pretty proud of it.',
+      imageUrl: '/images/tree-of-life.png',
+      url: 'https://lars-ostervold.vercel.app/'
+    },
+    {
       title: 'Book Scanner',
       description: 'This is an iOS app that lets you organize and search your book collection. Just scan the barcode and you\'re good to go!',
       imageUrl: '/images/book-scanner.jpg',
@@ -16,19 +28,7 @@ export default function Page() {
       description: 'A web app that generates weekly workouts for you (and also loves you unconditionally). 😊',
       imageUrl: '/images/fitness-buddy.png',
       url: 'https://main.d2ml4fhfnwpjvt.amplifyapp.com/dashboard/app'
-    },
-    {
-      title: 'Personal Website',
-      description: 'This is the site you\'re on right now! It\'s built with Next.js and Tailwind CSS. I\'m pretty proud of it.',
-      imageUrl: '/images/tree-of-life.png',
-      url: 'https://lars-ostervold.vercel.app/'
-    },
-    {
-      title: 'BREAD!🥖',
-      description: 'I\'ve been making a ridiculous amount of sourdough recently because it\'s rly rly fun.',
-      imageUrl: '/images/bread-photo.JPG',
-      url: null
-    },
+    }
   ];
 
   return (

@@ -24,8 +24,8 @@ export default function thoughtsPage() {
       </h1>
       <p className="mb-6">
         Just so I have placeholders for the future, here are some thoughts I might have.
-        And then you could like click on the thing and it'll take you to a page all about that 
-        single thought. Really cool stuff. 🧠🤯
+        And then you could lke click on the card and it'll take you to a page all about that 
+        single thought. 🧠🤯
       </p>
 
       <TagBar tags={tags} thoughts={allthoughts} />
