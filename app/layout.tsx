@@ -6,7 +6,10 @@ import { Navbar } from './components/nav';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { SandpackCSS } from './thoughts/[slug]/sandpack';
+
+import Link from 'next/link';
 import ChatIcon from '@mui/icons-material/Chat';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://lars-ostervold.vercel.app'),
@@ -73,9 +76,13 @@ export default function RootLayout({
           </main>
           <footer className="absolute bottom-0 w-full border-t border-gray-400 dark:border-gray-500">
             <div className="mt-1">
-              <a href="mailto:lars.ostervold.3@gmail.com" className="self-center">
-                <ChatIcon fontSize='small' className='mr-2' />
-                Chat with me
+              <Link href="/contact">
+                  <ChatIcon fontSize='small' className='mr-2' />
+                  Chat with me
+              </Link>
+              <a href="https://www.linkedin.com/in/larsostervold/" className="self-center ml-4">
+                <LinkedInIcon fontSize='small' className='mr-2' />
+                LinkedIn
               </a>
             </div>
           </footer>
