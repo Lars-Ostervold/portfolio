@@ -1,13 +1,6 @@
 import nodemailer from 'nodemailer';
 // import type { NextApiRequest, NextApiResponse } from 'next';
 
-export const config = {
-  api: {
-    bodyParser: true,
-  },
-};
-
-
 export async function POST(request: Request, response: Response) {
 
   const formData = await request.json();
