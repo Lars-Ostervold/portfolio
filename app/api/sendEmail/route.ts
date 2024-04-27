@@ -22,7 +22,7 @@ export async function POST(request: Request, response: Response) {
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: 'ostervold.berent@gmail.com',
-      subject: `New message from ${name}`,
+      subject: `Portfolio form: ${name}`,
       text: 'Reponse email: ' + email + '\n\n' + message,
     });
     return new Response('Email sent successfully');
