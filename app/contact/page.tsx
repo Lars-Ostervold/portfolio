@@ -1,9 +1,5 @@
 'use client';
 import { useState } from 'react';
-import Link from 'next/link';
-import ChatIcon from '@mui/icons-material/Chat';
-import { NextResponse } from 'next/server'
-import { POST } from 'app/api/sendEmail/route';
 
 
 // To add: email logic, back to home button, and styling
